@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.ScreenSense"
+        tools:targetApi="31">
+        <activity
+            android:name=".inicioApp.MainFiveActivity"
+            android:exported="false" />
+        <activity
+            android:name=".inicioApp.MainFourActivity"
+            android:exported="false" />
+        <activity
+            android:name=".inicioApp.MainThreeActivity"
+            android:exported="false" /> <!-- LogUp ahora es la pantalla inicial -->
+        <activity
+            android:name=".inicioApp.LogUp"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".inicioApp.MainTwoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".inicioApp.MainActivity"
+            android:exported="false" />
+    </application>
+
+</manifest>

@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">ScreenSense</string>
+    <string name="bienvenido_a">Bienvenido a</string>
+    <string name="screensense">ScreenSense</string>
+    <string name="loremMain">Te ayudamos para gestionar tu tiempo, bloquear aplicaciones y mejorar tu productividad. Screensense te ayuda a encontrar el equilibrio perfecto entre la tecnología y tu vida diaria.</string>
+    <string name="next">Continuar</string>
+    <string name="explain">Screensense es una aplicación móvil diseñada para ayudarte a gestionar tu tiempo frente a la pantalla de manera consciente y saludable. Con herramientas de monitoreo en tiempo real, reportes detallados de uso y recordatorios personalizados gracias a nuestra IA, te permite establecer límites y hábitos digitales más equilibrados.</string>
+    <string name="loremLog">TERMINOS Y CONDICIONES</string>
+    <string name="gmail">ejemplo@gmail.com</string>
+    <string name="dateBirth">DD-MM-AÑO</string>
+    <string name="name">Nombre</string>
+    <string name="mail">Correo Electronico</string>
+    <string name="bornDate">Fecha de Nacimiento</string>
+    <string name="password">Crear Contraseña</string>
+    <string name="back">ya tengo cuenta</string>
+    <string name="loremPermisos1">Acceso a los datos de uso de la app</string>
+    <string name="textPermiso1">Screesense requiere el permiso de uso para hacer su magia y mostrarte las increibles estadisticas de uso.</string>
+    <string name="BACK">VOLVER</string>
+    <string name="loremPermisos2">Datos de uso mejorados</string>
+    <string name="textPermisos2">Esto es opcional pero altamente recomendado. Este permiso de servicio de accesibilidad mejora la confiabilidad de los limites de uso y seguimiento en todos los tipos de servicios o aplicaciones usadas.</string>
+    <string name="textPermiso2_2">Toca en Aplicaciones instaladas y luego en Screensense para otorgar el permiso de accesibilidad.</string>
+
+</resources>

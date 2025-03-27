@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".inicioApp.MainActivity"
+    android:background="@color/background"
+    >
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_margin="20dp"
+        android:orientation="vertical"
+        >
+
+        <View
+            android:layout_width="320dp"
+            android:layout_height="250dp"
+            android:layout_gravity="center"
+            android:background="@color/backgroundLight"
+            >
+        </View>
+
+        <Button
+            android:id="@+id/button_click_here"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/loremLog"
+            android:backgroundTint="@color/background"
+            android:textColor="@color/turkesa"
+            android:layout_marginStart="8dp"
+            >
+        </Button>
+
+        <TextView
+            android:layout_marginTop="25dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/name"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:layout_marginStart="34dp"
+            >
+        </TextView>
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:layout_marginTop="10dp"
+            android:layout_width="285dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:background="@color/backgroundLight"
+            android:textColor="@color/hintColor"
+            android:textColorHint="@color/hintColor"
+
+            >
+        </androidx.appcompat.widget.AppCompatEditText>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/mail"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="34dp"
+            >
+        </TextView>
+
+        <androidx.appcompat.widget.AppCompatEditText
+
+            android:layout_width="285dp"
+            android:layout_height="40dp"
+            android:background="@color/backgroundLight"
+            android:hint="@string/gmail"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/hintColor"
+            android:textColorHint="@color/hintColor"
+
+            >
+        </androidx.appcompat.widget.AppCompatEditText>
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/bornDate"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="34dp"
+            >
+        </TextView>
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:layout_gravity="center"
+            android:id="@+id/etDate"
+            android:layout_width="285dp"
+            android:layout_height="40dp"
+            android:background="@color/backgroundLight"
+            android:hint="@string/dateBirth"
+            android:layout_marginTop="10dp"
+            android:clickable="false"
+            android:focusable="false"
+            android:textColor="@color/hintColor"
+            android:textColorHint="@color/hintColor"
+            >
+        </androidx.appcompat.widget.AppCompatEditText>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/password"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="34dp"
+            >
+        </TextView>
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:layout_width="285dp"
+            android:layout_gravity="center"
+            android:layout_height="40dp"
+            android:background="@color/backgroundLight"
+            android:layout_marginTop="10dp"
+            android:clickable="false"
+            android:focusable="false"
+            android:textColor="@color/hintColor"
+            android:textColorHint="@color/hintColor"
+            >
+        </androidx.appcompat.widget.AppCompatEditText>
+
+
+        <Button
+            android:id="@+id/btNext"
+            android:layout_width="350dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/turkesa"
+            android:text="@string/next"
+            android:textColor="@color/black"
+            app:cornerRadius="27dp"
+            android:layout_gravity="center"
+            >
+        </Button>
+        <Button
+            android:id="@+id/btBack"
+            android:layout_width="350dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="#FF4C85"
+            android:text="@string/back"
+            android:textColor="@color/black"
+            app:cornerRadius="27dp"
+            android:layout_gravity="center"
+            >
+        </Button>
+
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</androidx.constraintlayout.widget.ConstraintLayout>

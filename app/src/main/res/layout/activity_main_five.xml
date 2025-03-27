@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".inicioApp.MainActivity"
+    android:background="@color/background"
+    >
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.551"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="80dp"
+                android:layout_height="9dp"
+                android:layout_marginStart="21dp"
+                android:layout_marginTop="30dp"
+                app:cardCornerRadius="100dp"
+                android:backgroundTint="@color/turkesa"
+                >
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="80dp"
+                android:layout_height="9dp"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="30dp"
+                app:cardCornerRadius="100dp"
+                android:backgroundTint="@color/turkesa"
+                >
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="80dp"
+                android:layout_height="9dp"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="30dp"
+                app:cardCornerRadius="100dp"
+                android:backgroundTint="@color/turkesa"
+                >
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="80dp"
+                android:layout_height="9dp"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="30dp"
+                app:cardCornerRadius="100dp"
+                android:backgroundTint="@color/turkesa"
+                >
+            </androidx.cardview.widget.CardView>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <TextView
+            android:layout_marginTop="25dp"
+            android:layout_width="328dp"
+            android:layout_height="wrap_content"
+            android:text="@string/loremPermisos2"
+            android:textColor="@color/white"
+            android:textSize="35sp"
+            android:layout_gravity="center"
+            >
+        </TextView>
+
+        <TextView
+            android:layout_marginTop="25dp"
+            android:layout_width="328dp"
+            android:layout_height="wrap_content"
+            android:text="@string/textPermisos2"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:layout_gravity="center"
+            >
+        </TextView>
+
+        <TextView
+            android:layout_width="337dp"
+            android:layout_height="83dp"
+            android:layout_marginTop="150dp"
+            android:text="@string/textPermiso2_2"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:layout_gravity="center"
+            >
+        </TextView>
+
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="350dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="40dp"
+            android:backgroundTint="@color/turkesa"
+            android:text="@string/next"
+            android:textColor="@color/black"
+            app:cornerRadius="20dp"
+            android:layout_gravity="center"
+            >
+        </Button>
+
+        <Button
+            android:layout_width="350dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="#FF4C85"
+            android:text="@string/BACK"
+            android:textColor="@color/black"
+            app:cornerRadius="20dp"
+            android:layout_gravity="center"
+            >
+        </Button>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
