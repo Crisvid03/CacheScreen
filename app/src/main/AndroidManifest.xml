@@ -13,16 +13,16 @@
         android:theme="@style/Theme.ScreenSense"
         tools:targetApi="31">
         <activity
-            android:name=".inicioApp.MainFiveActivity"
+            android:name=".modulo1.RecuperarPassword3"
             android:exported="false" />
         <activity
-            android:name=".inicioApp.MainFourActivity"
+            android:name=".modulo1.RecuperarPassword2"
             android:exported="false" />
         <activity
-            android:name=".inicioApp.MainThreeActivity"
-            android:exported="false" /> <!-- LogUp ahora es la pantalla inicial -->
+            android:name=".modulo1.RecuperarPasswordActivity"
+            android:exported="false" /> <!-- ModOneActivityOne ahora es la pantalla de inicio -->
         <activity
-            android:name=".inicioApp.LogUp"
+            android:name=".modulo1.ModOneActivityOne"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -30,6 +30,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".inicioApp.MainFiveActivity"
+            android:exported="false" />
+        <activity
+            android:name=".inicioApp.MainFourActivity"
+            android:exported="false" />
+        <activity
+            android:name=".inicioApp.MainThreeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".inicioApp.LogUp"
+            android:exported="true" />
         <activity
             android:name=".inicioApp.MainTwoActivity"
             android:exported="false" />

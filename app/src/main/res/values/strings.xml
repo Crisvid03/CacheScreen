@@ -19,5 +19,20 @@
     <string name="loremPermisos2">Datos de uso mejorados</string>
     <string name="textPermisos2">Esto es opcional pero altamente recomendado. Este permiso de servicio de accesibilidad mejora la confiabilidad de los limites de uso y seguimiento en todos los tipos de servicios o aplicaciones usadas.</string>
     <string name="textPermiso2_2">Toca en Aplicaciones instaladas y luego en Screensense para otorgar el permiso de accesibilidad.</string>
+    <string name="WelcomeModOne">Bienvenido a ScreenSense</string>
+    <string name="GmailLogin">Correo Electronico</string>
+    <string name="PasswordLogin">Contraseña</string>
+    <string name="ForgotPassword">Olvidaste la contraseña?</string>
+    <string name="no_tienes_cuenta">No tienes cuenta ?</string>
+    <string name="registrarse">Registrarse</string>
+    <string name="recuperando_Password">Recuperando Contraseña</string>
+    <string name="rellenoRecuperar">Ingresa tu correo para restablecer tu contraseña</string>
+    <string name="correoRecuperar">Correo electronico</string>
+    <string name="RellenoCod">Ingresa el codigo de seguridad que fue enviado a tu correo</string>
+    <string name="pin">PIN</string>
+    <string name="Regresar">Regresar</string>
+    <string name="CodSeguridad">Volver a enviar codigo de seguridad</string>
+    <string name="IngresaPassword">Ingresa tu nueva contraseña</string>
+    <string name="DigitaNueva">Digitala nuevamente</string>
 
 </resources>
