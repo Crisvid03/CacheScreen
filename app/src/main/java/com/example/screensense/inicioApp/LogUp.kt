@@ -1,7 +1,9 @@
 package com.example.screensense.inicioApp
 
 import android.app.DatePickerDialog
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatEditText
@@ -24,6 +26,11 @@ class LogUp : AppCompatActivity() {
 
         val etDate = findViewById<AppCompatEditText>(R.id.etDate)
         etDate.setOnClickListener { showDatePickerDialog(etDate) }
+
+        val btnLogUpBack = findViewById<Button>(R.id.btnLogUpBack)
+        btnLogUpBack.setOnClickListener {
+            navigateUpToMainFive()
+        }
     }
 
     private fun showDatePickerDialog(etDate: AppCompatEditText) {
@@ -43,5 +50,10 @@ class LogUp : AppCompatActivity() {
         )
 
         datePickerDialog.show()
+
+    }
+    private fun navigateUpToMainFive(){
+        val intent = Intent(this , MainFiveActivity::class.java)
+        startActivity(intent)
     }
 }

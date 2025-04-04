@@ -84,7 +84,7 @@
         </TextView>
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/btnMainTwo"
             android:layout_width="350dp"
             android:layout_height="60dp"
             android:layout_marginTop="90dp"

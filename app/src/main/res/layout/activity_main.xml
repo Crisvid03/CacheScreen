@@ -6,116 +6,100 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".inicioApp.MainActivity"
-    android:background="@color/background"
-    >
+    android:background="@color/background">
 
-    <androidx.appcompat.widget.LinearLayoutCompat
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="15dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.551"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:orientation="vertical">
+        android:fillViewport="true"
+        tools:layout_editor_absoluteX="-57dp"
+        tools:layout_editor_absoluteY="0dp">
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="80dp"
-                android:layout_height="9dp"
-                android:layout_marginStart="21dp"
-                android:layout_marginTop="30dp"
-                app:cardCornerRadius="100dp">
-            </androidx.cardview.widget.CardView>
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:orientation="horizontal">
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="80dp"
-                android:layout_height="9dp"
-                android:layout_marginStart="2dp"
-                android:layout_marginTop="30dp"
-                app:cardCornerRadius="100dp">
-            </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="80dp"
+                    android:layout_height="9dp"
+                    android:layout_marginStart="21dp"
+                    android:layout_marginTop="30dp"
+                    app:cardCornerRadius="100dp" />
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="80dp"
-                android:layout_height="9dp"
-                android:layout_marginStart="2dp"
-                android:layout_marginTop="30dp"
-                app:cardCornerRadius="100dp">
-            </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="80dp"
+                    android:layout_height="9dp"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="30dp"
+                    app:cardCornerRadius="100dp" />
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="80dp"
-                android:layout_height="9dp"
-                android:layout_marginStart="2dp"
-                android:layout_marginTop="30dp"
-                app:cardCornerRadius="100dp">
-            </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="80dp"
+                    android:layout_height="9dp"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="30dp"
+                    app:cardCornerRadius="100dp" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="80dp"
+                    android:layout_height="9dp"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="30dp"
+                    app:cardCornerRadius="100dp" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <View
+                android:layout_width="322dp"
+                android:layout_height="337dp"
+                android:layout_gravity="center"
+                android:background="#0B191F" />
+
+            <TextView
+                android:layout_width="305dp"
+                android:layout_height="63dp"
+                android:gravity="center_vertical"
+                android:text="@string/bienvenido_a"
+                android:textColor="@color/white"
+                android:textSize="25sp" />
+
+            <TextView
+                android:layout_width="214dp"
+                android:layout_height="67dp"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center_vertical"
+                android:text="@string/screensense"
+                android:textColor="@color/turkesa"
+                android:textSize="32sp" />
+
+            <TextView
+                android:layout_width="328dp"
+                android:layout_height="140dp"
+                android:text="@string/loremMain"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/btnMain"
+                android:layout_width="350dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="7dp"
+                android:layout_marginTop="50dp"
+                android:backgroundTint="@color/turkesa"
+                android:text="@string/next"
+                android:textColor="@color/black"
+                app:cornerRadius="20dp" />
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
-
-        <View
-            android:layout_width="322dp"
-            android:layout_height="337dp"
-            android:background="#0B191F"
-            android:layout_gravity="center">
-        </View>
-
-        <TextView
-            android:layout_width="305dp"
-            android:layout_height="63dp"
-            android:text="@string/bienvenido_a"
-
-            android:textSize="25sp"
-            android:textColor="@color/white"
-            android:gravity="center_vertical"
-        >
-        </TextView>
-
-        <TextView
-            android:layout_width="214dp"
-            android:layout_height="67dp"
-            android:textSize="32sp"
-
-            android:text="@string/screensense"
-            android:fontFamily="sans-serif-medium"
-            android:gravity="center_vertical"
-            android:textColor="@color/turkesa"
-        >
-        </TextView>
-
-        <TextView
-            android:layout_width="328dp"
-            android:layout_height="140dp"
-            android:text="@string/loremMain"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-        >
-        </TextView>
-
-        <Button
-            android:id="@+id/button"
-            android:layout_width="350dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="50dp"
-            android:backgroundTint="@color/turkesa"
-            android:text="@string/next"
-            android:textColor="@color/black"
-            app:cornerRadius="20dp"
-            android:layout_marginStart="7dp"
-            >
-
-        </Button>
-
-    </androidx.appcompat.widget.LinearLayoutCompat>
-
-
-
-
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

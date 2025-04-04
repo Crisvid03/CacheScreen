@@ -94,7 +94,7 @@
         </View>
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/btnMainThreeNext"
             android:layout_width="350dp"
             android:layout_height="60dp"
             android:layout_marginTop="90dp"
@@ -107,6 +107,7 @@
         </Button>
 
         <Button
+            android:id="@+id/btnMainThreeBack"
             android:layout_width="350dp"
             android:layout_height="60dp"
             android:layout_marginTop="20dp"

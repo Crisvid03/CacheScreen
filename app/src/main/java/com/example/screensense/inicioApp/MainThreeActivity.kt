@@ -1,6 +1,8 @@
 package com.example.screensense.inicioApp
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -17,5 +19,27 @@ class MainThreeActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        val btnMainThreeNext = findViewById<Button>(R.id.btnMainThreeNext)
+        btnMainThreeNext.setOnClickListener{
+            navigateToMainFour()
+        }
+
+        val btnMainThreeBack = findViewById<Button>(R.id.btnMainThreeBack)
+        btnMainThreeBack.setOnClickListener {
+            navigateToMainTwo()
+        }
+
     }
+
+    private fun navigateToMainFour() {
+        val intent = Intent(this , MainFourActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun navigateToMainTwo() {
+        val intent = Intent(this , MainTwoActivity::class.java)
+        startActivity(intent)
+    }
+
 }

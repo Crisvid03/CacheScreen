@@ -20,6 +20,7 @@
        />
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
         android:layout_width="340dp"
         android:layout_height="384dp"
         android:layout_marginTop="350dp"
@@ -98,6 +99,7 @@
         android:backgroundTint="@color/background"
         android:textColor="@color/turkesa"
         android:text="@string/ForgotPassword"
+        app:layout_constraintTop_toBottomOf="@+id/cardView"
         >
     </Button>
 
@@ -110,8 +112,8 @@
         android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
+        app:layout_constraintStart_toStartOf="parent"
+        >
     </TextView>
 
     <Button
