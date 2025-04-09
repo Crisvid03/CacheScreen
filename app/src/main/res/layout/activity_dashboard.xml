@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Reside en res/layout/activity_dashboard.xml -->
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black">
+
+    <!-- 2. Contenedor (CardView) para el resumen semanal y la gráfica (histograma) -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardWeeklySummary"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/backgroundLight"
+        app:cardCornerRadius="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Título: Últimos siete días -->
+            <TextView
+                android:id="@+id/tvWeeklyTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Últimos siete días"
+                android:textColor="@android:color/white"
+                android:textSize="18sp" />
+
+            <!-- Texto descriptivo del total de tiempo usado -->
+            <TextView
+                android:id="@+id/tvWeeklyTotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Total: 43h 57m 30s"
+                android:textColor="@android:color/white"
+                android:textSize="14sp" />
+
+            <!-- Gráfica (BarChart) para el histograma semanal -->
+            <com.github.mikephil.charting.charts.BarChart
+                android:id="@+id/barChartWeekly"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="8dp"
+                />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- 3. RecyclerView para el listado de apps (por debajo del CardView) -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvAppsUsage"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/cardWeeklySummary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

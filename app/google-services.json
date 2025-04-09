@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "336973349107",
+    "project_id": "screensenseapp",
+    "storage_bucket": "screensenseapp.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:336973349107:android:4946d4334c605d7e1bb786",
+        "android_client_info": {
+          "package_name": "com.example.screensense"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDAE6X6TJdi_bAtZbJfupCuScPpnek--1U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

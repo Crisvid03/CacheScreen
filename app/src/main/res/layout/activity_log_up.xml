@@ -48,6 +48,7 @@
                 android:layout_marginStart="34dp" />
 
             <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etName"
                 android:layout_marginTop="10dp"
                 android:layout_width="285dp"
                 android:layout_height="40dp"
@@ -66,6 +67,7 @@
                 android:layout_marginStart="34dp" />
 
             <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etMail"
                 android:layout_width="285dp"
                 android:layout_height="40dp"
                 android:background="@color/backgroundLight"
@@ -85,8 +87,8 @@
                 android:layout_marginStart="34dp" />
 
             <androidx.appcompat.widget.AppCompatEditText
-                android:layout_gravity="center"
                 android:id="@+id/etDate"
+                android:layout_gravity="center"
                 android:layout_width="285dp"
                 android:layout_height="40dp"
                 android:background="@color/backgroundLight"
@@ -107,18 +109,19 @@
                 android:layout_marginStart="34dp" />
 
             <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etPassword"
                 android:layout_width="285dp"
                 android:layout_gravity="center"
                 android:layout_height="40dp"
                 android:background="@color/backgroundLight"
                 android:layout_marginTop="10dp"
-                android:clickable="false"
-                android:focusable="false"
                 android:textColor="@color/hintColor"
-                android:textColorHint="@color/hintColor" />
+                android:textColorHint="@color/hintColor"
+                android:inputType="textPassword"
+                />
 
             <Button
-                android:id="@+id/btNext"
+                android:id="@+id/btnLogUpNext"
                 android:layout_width="350dp"
                 android:layout_height="60dp"
                 android:layout_marginTop="20dp"
