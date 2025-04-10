@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Reside en res/layout/activity_dashboard.xml -->
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -8,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/black">
 
-    <!-- 2. Contenedor (CardView) para el resumen semanal y la gráfica (histograma) -->
+    <!-- Contenedor de gráfica principal -->
     <androidx.cardview.widget.CardView
         android:id="@+id/cardWeeklySummary"
         android:layout_width="0dp"
@@ -27,7 +26,6 @@
             android:orientation="vertical"
             android:padding="16dp">
 
-            <!-- Título: Últimos siete días -->
             <TextView
                 android:id="@+id/tvWeeklyTitle"
                 android:layout_width="wrap_content"
@@ -36,7 +34,6 @@
                 android:textColor="@android:color/white"
                 android:textSize="18sp" />
 
-            <!-- Texto descriptivo del total de tiempo usado -->
             <TextView
                 android:id="@+id/tvWeeklyTotal"
                 android:layout_width="wrap_content"
@@ -46,24 +43,70 @@
                 android:textColor="@android:color/white"
                 android:textSize="14sp" />
 
-            <!-- Gráfica (BarChart) para el histograma semanal -->
             <com.github.mikephil.charting.charts.BarChart
                 android:id="@+id/barChartWeekly"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:layout_marginTop="8dp"
-                />
-
+                android:layout_marginTop="8dp" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
-    <!-- 3. RecyclerView para el listado de apps (por debajo del CardView) -->
+    <!-- NUEVO: CardView con título y apps más usadas -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardTopThree"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="16dp"
+        android:backgroundTint="@color/backgroundLight"
+        app:cardCornerRadius="16dp"
+        app:layout_constraintTop_toBottomOf="@id/cardWeeklySummary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/tvTopThreeTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Top 3 aplicaciones más usadas"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <HorizontalScrollView
+                android:id="@+id/scrollTopThree"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:id="@+id/topThreeAppsContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:paddingHorizontal="16dp"/>
+            </HorizontalScrollView>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- RecyclerView para gráfica secundaria (uso diario por app) -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvAppsUsage"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@id/cardWeeklySummary"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/cardTopThree"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
