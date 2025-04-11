@@ -6,100 +6,106 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".inicioApp.MainActivity"
-    android:background="@color/background">
+    android:background="@color/background"
+    tools:context=".inicioApp.MainActivity">
 
-    <!-- ScrollView principal -->
+    <!-- ScrollView principal mejorado -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.551"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <!-- Contenedor de contenido desplazable -->
+        <!-- Contenedor de contenido con márgenes y centrado -->
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="15dp"
-            android:orientation="vertical">
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginVertical="24dp"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
 
-            <!-- Sección de indicadores -->
+            <!-- Indicadores mejor alineados -->
             <androidx.appcompat.widget.LinearLayoutCompat
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="80dp"
+                android:layout_gravity="center"
+                android:gravity="center"
                 android:orientation="horizontal">
 
-                <!-- Indicadores (CardViews) -->
                 <androidx.cardview.widget.CardView
-                    android:layout_width="80dp"
-                    android:layout_height="9dp"
-                    android:layout_marginStart="21dp"
-                    android:layout_marginTop="30dp"
-                    android:backgroundTint="@color/turkesa"
-                    app:cardCornerRadius="100dp"/>
+                    android:layout_width="20dp"
+                    android:layout_height="8dp"
+                    android:layout_marginHorizontal="4dp"
+                    app:cardBackgroundColor="@color/turkesa"
+                    app:cardCornerRadius="4dp" />
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="80dp"
-                    android:layout_height="9dp"
-                    android:layout_marginStart="2dp"
-                    android:layout_marginTop="30dp"
-                    android:backgroundTint="@color/turkesa"
-                    app:cardCornerRadius="100dp"/>
+                    android:layout_width="20dp"
+                    android:layout_height="8dp"
+                    android:layout_marginHorizontal="4dp"
+                    app:cardBackgroundColor="@color/turkesa"
+                    app:cardCornerRadius="4dp" />
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="80dp"
-                    android:layout_height="9dp"
-                    android:layout_marginStart="2dp"
-                    android:layout_marginTop="30dp"
-                    android:backgroundTint="@color/turkesa"
-                    app:cardCornerRadius="100dp"/>
+                    android:layout_width="20dp"
+                    android:layout_height="8dp"
+                    android:layout_marginHorizontal="4dp"
+                    app:cardBackgroundColor="@color/turkesa"
+                    app:cardCornerRadius="4dp" />
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="80dp"
-                    android:layout_height="9dp"
-                    android:layout_marginStart="2dp"
-                    android:layout_marginTop="30dp"
-                    app:cardCornerRadius="100dp"/>
+                    android:layout_width="20dp"
+                    android:layout_height="8dp"
+                    android:layout_marginHorizontal="4dp"
+                    app:cardBackgroundColor="@color/turkesa"
+                    app:cardCornerRadius="4dp" />
 
+                <androidx.cardview.widget.CardView
+                    android:layout_width="20dp"
+                    android:layout_height="8dp"
+                    android:layout_marginHorizontal="4dp"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="4dp" />
             </androidx.appcompat.widget.LinearLayoutCompat>
 
-            <!-- Contenido textual -->
+            <!-- Textos con mejor espaciado y alineación -->
             <TextView
-                android:layout_width="328dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="24dp"
+                android:gravity="center"
                 android:text="@string/loremPermisos2"
                 android:textColor="@color/white"
                 android:textSize="35sp"/>
 
             <TextView
-                android:layout_width="328dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
                 android:text="@string/textPermisos2"
                 android:textColor="@color/white"
                 android:textSize="20sp"/>
 
             <TextView
-                android:layout_width="337dp"
-                android:layout_height="83dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="150dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:gravity="center"
                 android:text="@string/textPermiso2_2"
                 android:textColor="@color/white"
                 android:textSize="20sp"/>
 
-            <!-- Botones de acción -->
+            <!-- Botones con márgenes consistentes -->
             <Button
                 android:id="@+id/btnMainFourNext"
                 android:layout_width="350dp"
                 android:layout_height="60dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="48dp"
                 android:backgroundTint="@color/turkesa"
                 android:text="@string/next"
                 android:textColor="@color/black"
@@ -109,8 +115,8 @@
                 android:id="@+id/btnMainFourBack"
                 android:layout_width="350dp"
                 android:layout_height="60dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="24dp"
                 android:backgroundTint="#FF4C85"
                 android:text="@string/BACK"
                 android:textColor="@color/black"
