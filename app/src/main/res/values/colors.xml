@@ -13,4 +13,6 @@
     <color name="hintLightColor">#DADADA</color>
     <color name="backgroundLight">#403D3D</color>
     <color name="barbie">#FF4C85</color>
+    <color name="cyan">#00FFFF</color>
+    <color name="gray">#888888</color>
 </resources>

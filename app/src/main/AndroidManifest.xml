@@ -1,18 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-
     <!-- Permiso para acceder a estadísticas de uso (se solicita en tiempo de ejecución) -->
     <uses-permission
         android:name="android.permission.PACKAGE_USAGE_STATS"
-        tools:ignore="ProtectedPermissions" />
-
-    <!-- Permiso para consultar paquetes (requiere justificación para Google Play) -->
+        tools:ignore="ProtectedPermissions" /> <!-- Permiso para consultar paquetes (requiere justificación para Google Play) -->
     <uses-permission
         android:name="android.permission.QUERY_ALL_PACKAGES"
-        tools:ignore="QueryAllPackagesPermission" />
-
-    <!-- Consultas necesarias para detectar apps instaladas -->
+        tools:ignore="QueryAllPackagesPermission" /> <!-- Consultas necesarias para detectar apps instaladas -->
     <queries>
         <intent>
             <action android:name="android.intent.action.MAIN" />
@@ -29,8 +24,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ScreenSense"
         tools:targetApi="31">
-
-        <!-- Justificación para QUERY_ALL_PACKAGES (requerido para Google Play) -->
+        <activity
+            android:name=".BottomNavActivity"
+            android:exported="false" />
         <meta-data
             android:name="android.permission.QUERY_ALL_PACKAGES"
             android:value="Se requiere para mostrar estadísticas precisas de uso de aplicaciones instaladas por el usuario" />
@@ -70,8 +66,10 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
     </application>
+
 </manifest>

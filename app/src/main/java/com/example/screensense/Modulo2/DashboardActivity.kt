@@ -19,6 +19,8 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.cardview.widget.CardView
+import com.example.screensense.BottomNavActivity
 import com.example.screensense.R
 import com.github.mikephil.charting.charts.BarChart
 import com.github.mikephil.charting.components.XAxis
@@ -54,6 +56,15 @@ class DashboardActivity : AppCompatActivity() {
             val appsTop = obtenerTop3Apps()
             mostrarTop3Apps(appsTop)
         }
+
+        val cardTopThree = findViewById<CardView>(R.id.cardTopThree)
+
+        cardTopThree.setOnClickListener {
+            val intent = Intent(this, BottomNavActivity::class.java)
+            startActivity(intent)
+        }
+
+
     }
 
     /**

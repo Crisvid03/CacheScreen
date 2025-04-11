@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_usage"
+        android:icon="@drawable/ic_usage"
+        android:title="Mi uso" />
+
+    <item
+        android:id="@+id/nav_limits"
+        android:icon="@drawable/ic_limits"
+        android:title="Limites de uso" />
+
+    <item
+        android:id="@+id/nav_block"
+        android:icon="@drawable/ic_block"
+        android:title="Bloqueo de funciones" />
+
+</menu>
