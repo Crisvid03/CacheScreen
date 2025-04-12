@@ -1,4 +1,4 @@
-package com.example.screensense.Modulo2
+package com.example.screensense.Modulo2.Graficas
 
 import android.app.AppOpsManager
 import android.app.usage.UsageStats
@@ -19,8 +19,8 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.cardview.widget.CardView
-import com.example.screensense.BottomNavActivity
+import com.example.screensense.Modulo3.BlockActivity
+import com.example.screensense.Modulo2.Bloqueo.limitsActivity
 import com.example.screensense.R
 import com.github.mikephil.charting.charts.BarChart
 import com.github.mikephil.charting.components.XAxis
@@ -29,6 +29,7 @@ import com.github.mikephil.charting.data.BarDataSet
 import com.github.mikephil.charting.data.BarEntry
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 import com.github.mikephil.charting.utils.ColorTemplate
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import java.util.concurrent.TimeUnit
 
 class DashboardActivity : AppCompatActivity() {
@@ -57,12 +58,28 @@ class DashboardActivity : AppCompatActivity() {
             mostrarTop3Apps(appsTop)
         }
 
-        val cardTopThree = findViewById<CardView>(R.id.cardTopThree)
 
-        cardTopThree.setOnClickListener {
-            val intent = Intent(this, BottomNavActivity::class.java)
-            startActivity(intent)
+        val bottomNav = findViewById<BottomNavigationView>(R.id.bottom_navigation)
+        bottomNav.selectedItemId = R.id.nav_usage // Estás en la pantalla de "Mi uso"
+
+        bottomNav.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.nav_usage -> {
+                    // Ya estás en esta pantalla, no hagas nada
+                    true
+                }
+                R.id.nav_limits -> {
+                    startActivity(Intent(this, limitsActivity::class.java))
+                    true
+                }
+                R.id.nav_block -> {
+                    startActivity(Intent(this, BlockActivity::class.java))
+                    true
+                }
+                else -> false
+            }
         }
+
 
 
     }

@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatEditText
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.screensense.Modulo2.DashboardActivity
+import com.example.screensense.Modulo2.Graficas.DashboardActivity
 import com.example.screensense.R
 import com.example.screensense.inicioApp.LogUp
 import com.google.firebase.auth.FirebaseAuth

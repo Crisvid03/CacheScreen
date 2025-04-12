@@ -25,14 +25,24 @@
         android:theme="@style/Theme.ScreenSense"
         tools:targetApi="31">
         <activity
+            android:name=".Modulo2.Bloqueo.ChooseAppActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Modulo3.BlockActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Modulo2.Bloqueo.limitsActivity"
+            android:exported="false" />
+        <activity
             android:name=".BottomNavActivity"
             android:exported="false" />
+
         <meta-data
             android:name="android.permission.QUERY_ALL_PACKAGES"
             android:value="Se requiere para mostrar estadísticas precisas de uso de aplicaciones instaladas por el usuario" />
 
         <activity
-            android:name=".Modulo2.DashboardActivity"
+            android:name=".Modulo2.Graficas.DashboardActivity"
             android:exported="false" />
         <activity
             android:name=".modulo1.RecuperarPassword1"

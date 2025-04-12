@@ -1,4 +1,4 @@
-package com.example.screensense.Modulo2
+package com.example.screensense.Modulo2.Graficas
 
 import android.graphics.drawable.Drawable
 
