@@ -30,7 +30,7 @@
         android:layout_width="0dp"
         android:layout_margin="20dp"
         android:layout_height="wrap_content"
-        android:text="Aplicaciones Bloqueadas "
+        android:text="Aplicaciones Limitadas "
         android:textSize="18sp"
         app:layout_constraintTop_toBottomOf="@id/tv_title"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,7 +45,7 @@
 
     <!-- Botón para añadir nuevos límites -->
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_blocked_apps"
+        android:id="@+id/rv_limited_apps"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="16dp"

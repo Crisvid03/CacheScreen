@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp"
+        android:gravity="center_horizontal">
+
+        <!-- Botón para descartar -->
+        <TextView
+            android:id="@+id/tv_discard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Descartar"
+            android:textColor="#FF4081"
+            android:textSize="16sp"
+            android:layout_gravity="start"
+            android:paddingBottom="10dp"
+            android:clickable="true"
+            android:focusable="true" />
+
+        <!-- CardView App seleccionada -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="8dp"
+            android:backgroundTint="#2B2B2B"
+            android:layout_marginBottom="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <ImageView
+                    android:id="@+id/iv_app_icon"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:contentDescription="App Icon" />
+
+                <TextView
+                    android:id="@+id/tv_app_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="16dp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Título: Tipo de Límite de Uso -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tipo de Límite de Uso"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:layout_marginBottom="10dp" />
+
+        <!-- Botones de tipo de límite -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="20dp">
+
+            <Button
+                android:id="@+id/btn_limit_daily"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="50dp"
+                android:text="Límite Diario"
+                android:backgroundTint="#00C8FF"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                android:layout_marginEnd="8dp" />
+
+            <Button
+                android:id="@+id/btn_limit_by_time"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="50dp"
+                android:text="Por Horario"
+                android:backgroundTint="#2B2B2B"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:layout_marginStart="8dp" />
+        </LinearLayout>
+
+        <!-- Título: Define el límite de uso diario -->
+        <TextView
+            android:layout_marginTop="70dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Define el límite de uso diario"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:layout_marginBottom="10dp" />
+
+        <!-- Pickers de Horas y Minutos -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="30dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:background="@drawable/rounded_bg"
+                android:padding="16dp">
+
+                <!-- Horas -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <NumberPicker
+                        android:id="@+id/np_hours"
+                        android:layout_width="64dp"
+                        android:layout_height="120dp"
+                        android:background="@android:color/transparent"
+                        android:textColor="@android:color/white"
+                        android:textSize="50sp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="HORAS"
+                        android:textColor="#80FFFFFF"
+                        android:textSize="12sp"
+                        android:textAllCaps="true"
+                        android:layout_marginTop="8dp"/>
+                </LinearLayout>
+
+                <!-- Separador -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=":"
+                    android:textColor="@android:color/white"
+                    android:textSize="24sp"
+                    android:layout_marginHorizontal="8dp"/>
+
+                <!-- Minutos -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <NumberPicker
+                        android:id="@+id/np_minutes"
+                        android:layout_width="64dp"
+                        android:layout_height="120dp"
+                        android:background="@android:color/transparent"
+                        android:textColor="@android:color/white"
+                        android:textSize="24sp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="MINUTOS"
+                        android:textColor="#80FFFFFF"
+                        android:textSize="12sp"
+                        android:textAllCaps="true"
+                        android:layout_marginTop="8dp"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Botón Guardar -->
+        <Button
+            android:id="@+id/btn_save_limit"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:text="Guardar"
+            android:textSize="18sp"
+            android:backgroundTint="#00C8FF"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:layout_marginBottom="0dp"
+            android:layout_marginTop="70dp" />
+
+    </LinearLayout>
+
+</ScrollView>

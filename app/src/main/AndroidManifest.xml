@@ -1,85 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-    <!-- Permiso para acceder a estadísticas de uso (se solicita en tiempo de ejecución) -->
-    <uses-permission
-        android:name="android.permission.PACKAGE_USAGE_STATS"
-        tools:ignore="ProtectedPermissions" /> <!-- Permiso para consultar paquetes (requiere justificación para Google Play) -->
-    <uses-permission
-        android:name="android.permission.QUERY_ALL_PACKAGES"
-        tools:ignore="QueryAllPackagesPermission" /> <!-- Consultas necesarias para detectar apps instaladas -->
+
+    <!-- Permisos básicos -->
+    <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS"
+        tools:ignore="ProtectedPermissions"/>
+    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES"
+        tools:ignore="QueryAllPackagesPermission"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+
+    <!-- Permisos para systemExempted -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SYSTEM_EXEMPTED"/>
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM"/>
+    <uses-permission android:name="android.permission.USE_EXACT_ALARM"/>
+
     <queries>
         <intent>
-            <action android:name="android.intent.action.MAIN" />
+            <action android:name="android.intent.action.MAIN"/>
         </intent>
     </queries>
 
     <application
         android:allowBackup="true"
-        android:dataExtractionRules="@xml/data_extraction_rules"
-        android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.ScreenSense"
-        tools:targetApi="31">
+        android:theme="@style/Theme.ScreenSense">
+
+        <!-- Servicio con foregroundServiceType simplificado -->
+        <service
+            android:name=".modulo2.services.AppLimitService"
+            android:enabled="true"
+            android:exported="false"
+            android:foregroundServiceType="systemExempted"/>
+
+        <!-- Actividades del módulo 2 -->
         <activity
-            android:name=".Modulo2.Bloqueo.ChooseAppActivity"
+            android:name=".modulo2.bloqueo.LimitConfigActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light.DialogWhenLarge" />
+
+        <activity
+            android:name=".modulo2.bloqueo.ChooseAppActivity"
             android:exported="false" />
+
+        <activity
+            android:name=".modulo2.bloqueo.LimitsActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".modulo2.graficas.DashboardActivity"
+            android:exported="false" />
+
+        <!-- Actividades del módulo 3 -->
         <activity
             android:name=".Modulo3.BlockActivity"
             android:exported="false" />
-        <activity
-            android:name=".Modulo2.Bloqueo.limitsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".BottomNavActivity"
-            android:exported="false" />
 
-        <meta-data
-            android:name="android.permission.QUERY_ALL_PACKAGES"
-            android:value="Se requiere para mostrar estadísticas precisas de uso de aplicaciones instaladas por el usuario" />
-
-        <activity
-            android:name=".Modulo2.Graficas.DashboardActivity"
-            android:exported="false" />
+        <!-- Actividades del módulo 1 -->
         <activity
             android:name=".modulo1.RecuperarPassword1"
             android:exported="false" />
-        <activity
-            android:name=".modulo1.RecuperarPassword3"
-            android:exported="false" />
+
         <activity
             android:name=".modulo1.RecuperarPassword2"
             android:exported="false" />
+
+        <activity
+            android:name=".modulo1.RecuperarPassword3"
+            android:exported="false" />
+
         <activity
             android:name=".modulo1.ModOneActivityOne"
             android:exported="true" />
-        <activity
-            android:name=".inicioApp.MainFiveActivity"
-            android:exported="false" />
-        <activity
-            android:name=".inicioApp.MainFourActivity"
-            android:exported="false" />
-        <activity
-            android:name=".inicioApp.MainThreeActivity"
-            android:exported="false" />
-        <activity
-            android:name=".inicioApp.LogUp"
-            android:exported="true" />
-        <activity
-            android:name=".inicioApp.MainTwoActivity"
-            android:exported="false" />
+
+        <!-- Actividades de inicio -->
         <activity
             android:name=".inicioApp.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-    </application>
 
+        <activity
+            android:name=".inicioApp.MainTwoActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".inicioApp.MainThreeActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".inicioApp.MainFourActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".inicioApp.MainFiveActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".inicioApp.LogUp"
+            android:exported="true" />
+
+        <!-- Actividad de navegación -->
+        <activity
+            android:name=".BottomNavActivity"
+            android:exported="false" />
+
+        <!-- Justificación para Google Play -->
+        <meta-data
+            android:name="android.permission.QUERY_ALL_PACKAGES"
+            android:value="Se requiere para mostrar estadísticas precisas de uso de aplicaciones instaladas por el usuario" />
+    </application>
 </manifest>

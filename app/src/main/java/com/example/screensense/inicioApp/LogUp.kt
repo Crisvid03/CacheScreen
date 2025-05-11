@@ -54,6 +54,36 @@ class LogUp : AppCompatActivity() {
         etPassword = findViewById(R.id.etPassword)
         etDate = findViewById(R.id.etDate)
 
+        val imm = getSystemService(INPUT_METHOD_SERVICE) as android.view.inputmethod.InputMethodManager
+
+        etName.setOnFocusChangeListener { v, hasFocus ->
+            if (hasFocus) {
+                imm.showSoftInput(v, android.view.inputmethod.InputMethodManager.SHOW_IMPLICIT)
+            }
+        }
+
+        etMail.setOnFocusChangeListener { v, hasFocus ->
+            if (hasFocus) {
+                imm.showSoftInput(v, android.view.inputmethod.InputMethodManager.SHOW_IMPLICIT)
+            }
+        }
+
+        etPassword.setOnFocusChangeListener { v, hasFocus ->
+            if (hasFocus) {
+                imm.showSoftInput(v, android.view.inputmethod.InputMethodManager.SHOW_IMPLICIT)
+            }
+        }
+
+        etDate.setOnFocusChangeListener { v, hasFocus ->
+            if (hasFocus) {
+                imm.showSoftInput(v, android.view.inputmethod.InputMethodManager.SHOW_IMPLICIT)
+            }
+        }
+
+
+
+
+
         // DatePicker para seleccionar fecha de nacimiento
         etDate.setOnClickListener { showDatePickerDialog() }
 

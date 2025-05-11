@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="icon_size">60dp</dimen>
+    <dimen name="number_picker_text_size">80sp</dimen>
+    <dimen name="number_picker_divider_height">2dp</dimen>
 </resources>

@@ -1,4 +1,4 @@
-package com.example.screensense.Modulo2.Graficas
+package com.example.screensense.modulo2.graficas
 
 import com.github.mikephil.charting.formatter.ValueFormatter
 

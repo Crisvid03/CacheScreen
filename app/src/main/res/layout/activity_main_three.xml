@@ -99,7 +99,7 @@
             <!-- Botones con márgenes consistentes -->
             <Button
                 android:id="@+id/btnMainThreeNext"
-                android:layout_width="350dp"
+                android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginTop="48dp"
                 android:backgroundTint="@color/turkesa"
@@ -109,7 +109,7 @@
 
             <Button
                 android:id="@+id/btnMainThreeBack"
-                android:layout_width="350dp"
+                android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="24dp"

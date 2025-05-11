@@ -5,143 +5,170 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".inicioApp.MainActivity"
-    android:background="@color/background">
+    android:background="@color/background"
+    tools:context=".inicioApp.MainActivity">
 
     <ScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:fillViewport="true"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
 
-        <androidx.appcompat.widget.LinearLayoutCompat
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:orientation="vertical">
+            android:layout_margin="16dp"
+            android:orientation="vertical"
+            android:paddingBottom="32dp"
+            >
 
+            <!-- View superior (imagen/placeholder) -->
             <View
                 android:layout_width="320dp"
-                android:layout_height="250dp"
+                android:layout_height="200dp"
                 android:layout_gravity="center"
-                android:background="@color/backgroundLight" />
+                android:layout_marginBottom="24dp"
+                android:background="@color/backgroundLight"
+                android:foreground="?attr/selectableItemBackgroundBorderless" />
 
+            <!-- Botón de texto -->
             <Button
                 android:id="@+id/button_click_here"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:background="@android:color/transparent"
                 android:text="@string/loremLog"
-                android:backgroundTint="@color/background"
+                android:textAllCaps="false"
                 android:textColor="@color/turkesa"
-                android:layout_marginStart="8dp" />
+                android:textSize="14sp" />
 
-            <TextView
-                android:layout_marginTop="25dp"
-                android:layout_width="wrap_content"
+            <!-- Campos del formulario -->
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/name"
-                android:textColor="@color/white"
-                android:textSize="14sp"
-                android:layout_marginStart="34dp" />
+                android:layout_marginTop="16dp"
+                android:orientation="vertical"
+                android:paddingHorizontal="8dp">
 
-            <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/etName"
-                android:layout_marginTop="10dp"
-                android:layout_width="285dp"
-                android:layout_height="40dp"
-                android:layout_gravity="center"
-                android:background="@color/backgroundLight"
-                android:textColor="@color/hintColor"
-                android:textColorHint="@color/hintColor" />
+                <!-- Campo Nombre -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/name"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/mail"
-                android:textColor="@color/white"
-                android:textSize="14sp"
-                android:layout_marginTop="10dp"
-                android:layout_marginStart="34dp" />
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/etName"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@color/backgroundLight"
+                    android:paddingStart="12dp"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/hintColor"
+                    android:textSize="14sp" />
 
-            <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/etMail"
-                android:layout_width="285dp"
-                android:layout_height="40dp"
-                android:background="@color/backgroundLight"
-                android:hint="@string/gmail"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:textColor="@color/hintColor"
-                android:textColorHint="@color/hintColor" />
+                <!-- Campo Email -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/mail"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/bornDate"
-                android:textColor="@color/white"
-                android:textSize="14sp"
-                android:layout_marginTop="10dp"
-                android:layout_marginStart="34dp" />
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/etMail"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@color/backgroundLight"
+                    android:hint="@string/gmail"
+                    android:inputType="textEmailAddress"
+                    android:paddingStart="12dp"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/hintColor"
+                    android:textSize="14sp" />
 
-            <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/etDate"
-                android:layout_gravity="center"
-                android:layout_width="285dp"
-                android:layout_height="40dp"
-                android:background="@color/backgroundLight"
-                android:hint="@string/dateBirth"
-                android:layout_marginTop="10dp"
-                android:clickable="false"
-                android:focusable="false"
-                android:textColor="@color/hintColor"
-                android:textColorHint="@color/hintColor" />
+                <!-- Campo Fecha -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/bornDate"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/password"
-                android:textColor="@color/white"
-                android:textSize="14sp"
-                android:layout_marginTop="10dp"
-                android:layout_marginStart="34dp" />
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/etDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@color/backgroundLight"
+                    android:clickable="true"
+                    android:focusable="false"
+                    android:hint="@string/dateBirth"
+                    android:paddingStart="12dp"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/hintColor"
+                    android:textSize="14sp" />
 
-            <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/etPassword"
-                android:layout_width="285dp"
-                android:layout_gravity="center"
-                android:layout_height="40dp"
-                android:background="@color/backgroundLight"
-                android:layout_marginTop="10dp"
-                android:textColor="@color/hintColor"
-                android:textColorHint="@color/hintColor"
-                android:inputType="textPassword"
-                />
+                <!-- Campo Contraseña -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/password"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
 
-            <Button
-                android:id="@+id/btnLogUpNext"
-                android:layout_width="350dp"
-                android:layout_height="60dp"
-                android:layout_marginTop="20dp"
-                android:backgroundTint="@color/turkesa"
-                android:text="@string/next"
-                android:textColor="@color/black"
-                app:cornerRadius="27dp"
-                android:layout_gravity="center" />
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/etPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@color/backgroundLight"
+                    android:inputType="textPassword"
+                    android:paddingStart="12dp"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/hintColor"
+                    android:textSize="14sp" />
 
-            <Button
-                android:id="@+id/btnLogUpBack"
-                android:layout_width="350dp"
-                android:layout_height="60dp"
-                android:layout_marginTop="20dp"
-                android:backgroundTint="#FF4C85"
-                android:text="@string/back"
-                android:textColor="@color/black"
-                app:cornerRadius="27dp"
-                android:layout_gravity="center" />
+                <!-- Botones de acción -->
 
-        </androidx.appcompat.widget.LinearLayoutCompat>
+                <Button
+                    android:id="@+id/btnLogUpNext"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+
+                    android:layout_marginTop="24dp"
+
+                    android:backgroundTint="@color/turkesa"
+                    android:text="@string/next"
+                    android:textAllCaps="false"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <Button
+                    android:id="@+id/btnLogUpBack"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="12dp"
+                    android:backgroundTint="#FF4C85"
+                    android:text="@string/back"
+                    android:textAllCaps="false"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+
+                    />
+            </LinearLayout>
+        </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

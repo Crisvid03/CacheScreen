@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.screensense.R
 import com.example.screensense.model.AppInfo
+import java.util.concurrent.TimeUnit
 
 class AppListAdapter(
     private val apps: List<AppInfo>,
@@ -31,10 +32,22 @@ class AppListAdapter(
     class AppViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val ivIcon: ImageView = itemView.findViewById(R.id.iv_app_icon)
         private val tvName: TextView = itemView.findViewById(R.id.tv_app_name)
+        private val tvLimit: TextView = itemView.findViewById(R.id.tv_limit)
+        private val tvUsedToday: TextView = itemView.findViewById(R.id.tv_used_today)
 
         fun bind(app: AppInfo) {
             ivIcon.setImageDrawable(app.appIcon)
             tvName.text = app.appName
+
+            // Formatear el tiempo
+            tvLimit.text = "Límite: ${formatMillis(app.limitTimeMillis)}"
+            tvUsedToday.text = "Usado hoy: ${formatMillis(app.usageTodayMillis)}"
+        }
+
+        private fun formatMillis(millis: Long): String {
+            val hours = TimeUnit.MILLISECONDS.toHours(millis)
+            val minutes = TimeUnit.MILLISECONDS.toMinutes(millis) % 60
+            return "${hours}h ${minutes}min"
         }
     }
 }

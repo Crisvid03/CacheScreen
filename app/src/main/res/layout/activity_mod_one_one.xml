@@ -68,7 +68,9 @@
                     android:layout_marginTop="50dp"
                     android:layout_gravity="center"
                     android:textColorHint="@color/hintLightColor"
-                    android:textColor="@color/hintLightColor" />
+                    android:textColor="@color/hintLightColor"
+                    android:inputType="textPassword"
+                    />
 
                 <Button
                     android:id="@+id/btnLogin"
@@ -86,7 +88,7 @@
 
         <Button
             android:id="@+id/btnLogInForgot"
-            android:layout_width="260dp"
+            android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginBottom="60dp"
             app:layout_constraintBottom_toBottomOf="parent"

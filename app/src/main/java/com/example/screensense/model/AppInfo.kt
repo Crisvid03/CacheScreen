@@ -3,7 +3,9 @@ package com.example.screensense.model
 import android.graphics.drawable.Drawable
 
 data class AppInfo(
-    val packageName: String,
     val appName: String,
-    val appIcon: Drawable
+    val packageName: String,
+    val appIcon: Drawable,
+    var limitTimeMillis: Long = 0L,
+    var usageTodayMillis: Long = 0L
 )

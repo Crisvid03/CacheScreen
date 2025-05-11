@@ -79,6 +79,11 @@ dependencies {
     implementation ("com.github.PhilJay:MPAndroidChart:v3.1.0")
     implementation ("androidx.recyclerview:recyclerview:1.2.1")
 
+    implementation ("androidx.work:work-runtime-ktx:2.7.1")
+
+    implementation ("androidx.work:work-runtime-ktx:2.7.1")
+    implementation ("androidx.annotation:annotation:1.6.0")
+
 
     // Testing
     testImplementation(libs.junit)

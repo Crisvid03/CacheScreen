@@ -1,4 +1,4 @@
-package com.example.screensense.Modulo2.Graficas
+package com.example.screensense.modulo2.graficas
 
 import android.app.AppOpsManager
 import android.app.usage.UsageStats
@@ -20,8 +20,8 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.screensense.Modulo3.BlockActivity
-import com.example.screensense.Modulo2.Bloqueo.limitsActivity
 import com.example.screensense.R
+import com.example.screensense.modulo2.bloqueo.LimitsActivity
 import com.github.mikephil.charting.charts.BarChart
 import com.github.mikephil.charting.components.XAxis
 import com.github.mikephil.charting.data.BarData
@@ -69,7 +69,7 @@ class DashboardActivity : AppCompatActivity() {
                     true
                 }
                 R.id.nav_limits -> {
-                    startActivity(Intent(this, limitsActivity::class.java))
+                    startActivity(Intent(this, LimitsActivity::class.java))
                     true
                 }
                 R.id.nav_block -> {

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <!-- Icono de advertencia (versión corregida con app:tint) -->
+    <ImageView
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginBottom="24dp"
+        android:src="@drawable/ic_block"
+        app:tint="@color/teal_200"
+        />
+
+    <!-- Mensaje principal -->
+    <TextView
+        android:id="@+id/tv_blocked_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="APP BLOQUEADA"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginBottom="24dp"
+        android:lineSpacingExtra="4sp" />
+
+    <!-- Tiempo excedido -->
+    <TextView
+        android:id="@+id/tv_time_exceeded"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textColor="@color/white"
+        android:layout_marginBottom="32dp"
+        tools:text="Tiempo de uso exdedido" />
+
+    <!-- Botón de acción -->
+    <Button
+        android:id="@+id/btn_ok"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CERRAR"
+        android:minWidth="160dp"
+        android:backgroundTint="@color/turkesa"
+        android:textColor="@color/black"
+        android:paddingHorizontal="24dp"
+        android:paddingVertical="12dp"
+        android:textAllCaps="false"
+        android:elevation="4dp" />
+</LinearLayout>

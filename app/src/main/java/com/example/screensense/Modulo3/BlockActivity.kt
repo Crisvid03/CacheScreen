@@ -6,9 +6,9 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.screensense.Modulo2.Bloqueo.limitsActivity
-import com.example.screensense.Modulo2.Graficas.DashboardActivity
+import com.example.screensense.modulo2.graficas.DashboardActivity
 import com.example.screensense.R
+import com.example.screensense.modulo2.bloqueo.LimitsActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class BlockActivity : AppCompatActivity() {
@@ -32,7 +32,7 @@ class BlockActivity : AppCompatActivity() {
                     true
                 }
                 R.id.nav_limits -> {
-                    startActivity(Intent(this, limitsActivity::class.java))
+                    startActivity(Intent(this, LimitsActivity::class.java))
                     true
                 }
                 R.id.nav_usage -> {

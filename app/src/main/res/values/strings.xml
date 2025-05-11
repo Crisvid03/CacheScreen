@@ -35,4 +35,19 @@
     <string name="IngresaPassword">Ingresa tu nueva contraseña</string>
     <string name="DigitaNueva">Digitala nuevamente</string>
 
+    <!-- LimitConfigActivity -->
+    <string name="unknown_app">Aplicación desconocida</string>
+
+    <!-- AppLimitService -->
+    <string name="app_limit_notification_title">ScreenSense Activo</string>
+    <string name="app_limit_notification_text">Monitoreando límites de uso</string>
+    <string name="app_limit_channel_name">Monitor de Límites</string>
+    <string name="app_limit_channel_description">Notificaciones del servicio de límites de uso</string>
+
+    <!-- BlockerActivity -->
+    <string name="block_message_title">Has excedido el tiempo en %s</string>
+    <string name="block_message_content_desc">Notificación de tiempo excedido para %s</string>
+    <string name="time_exceeded_detail">Tiempo usado: %s</string>
+    <string name="time_exceeded_content_desc">Tiempo total de uso %s</string>
+
 </resources>
