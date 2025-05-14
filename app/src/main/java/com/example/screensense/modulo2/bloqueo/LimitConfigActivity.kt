@@ -1,5 +1,8 @@
 package com.example.screensense.modulo2.bloqueo
 
+import android.app.AlarmManager
+import android.app.PendingIntent
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
@@ -11,13 +14,9 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
-
 import com.example.screensense.R
-import com.example.screensense.modulo2.bloqueo.services.AppLimitService
 import com.example.screensense.modulo2.utils.PermissionUtils
-
-
+import com.example.screensense.receiver.AppLimitReceiver
 
 class LimitConfigActivity : AppCompatActivity() {
 
@@ -28,7 +27,6 @@ class LimitConfigActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_limit_config)
 
-        // Validar datos del intent
         appName = intent.getStringExtra("app_name") ?: run {
             showErrorAndFinish("Error: Nombre de app no disponible")
             return
@@ -45,7 +43,6 @@ class LimitConfigActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        // Verificar si el usuario regresó de ajustes y concedió permisos
         if (PermissionUtils.checkUsageStatsPermission(this)) {
             setupLimitConfiguration()
         }
@@ -58,7 +55,6 @@ class LimitConfigActivity : AppCompatActivity() {
         val npMinutes: NumberPicker = findViewById(R.id.np_minutes)
         val btnSave: Button = findViewById(R.id.btn_save_limit)
 
-        // Cargar ícono
         try {
             appIconImageView.setImageDrawable(packageManager.getApplicationIcon(packageName))
         } catch (e: PackageManager.NameNotFoundException) {
@@ -104,7 +100,6 @@ class LimitConfigActivity : AppCompatActivity() {
     }
 
     private fun setupLimitConfiguration() {
-        // Habilitar UI si los permisos están concedidos
         findViewById<Button>(R.id.btn_save_limit).isEnabled = true
     }
 
@@ -128,7 +123,8 @@ class LimitConfigActivity : AppCompatActivity() {
             apply()
         }
 
-        startMonitoringService()
+        // 🚨 Programar la alarma general
+        com.example.screensense.scheduler.AppLimitScheduler.scheduleRepeatingAlarm(this)
 
         val intent = Intent(this, LimitsActivity::class.java)
         startActivity(intent)
@@ -137,15 +133,27 @@ class LimitConfigActivity : AppCompatActivity() {
         finish()
     }
 
-    private fun startMonitoringService() {
-        Intent(this, AppLimitService::class.java).apply {
+
+    private fun scheduleLimitCheck(packageName: String) {
+        val alarmManager = getSystemService(Context.ALARM_SERVICE) as AlarmManager
+        val intent = Intent(this, AppLimitReceiver::class.java).apply {
             putExtra("package_name", packageName)
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                ContextCompat.startForegroundService(this@LimitConfigActivity, this)
-            } else {
-                startService(this)
-            }
         }
+        val pendingIntent = PendingIntent.getBroadcast(
+            this,
+            packageName.hashCode(),
+            intent,
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+        )
+
+        val triggerAtMillis = System.currentTimeMillis() + 60_000 // en 1 minuto arranca el chequeo
+
+        alarmManager.setRepeating(
+            AlarmManager.RTC_WAKEUP,
+            triggerAtMillis,
+            60_000,  // cada minuto
+            pendingIntent
+        )
     }
 
     private fun showErrorAndFinish(message: String) {
