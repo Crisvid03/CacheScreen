@@ -66,11 +66,11 @@
             </androidx.appcompat.widget.LinearLayoutCompat>
 
             <!-- Placeholder Image - Tamaño proporcional -->
-            <View
+            <ImageView
                 android:layout_width="300dp"
                 android:layout_height="300dp"
                 android:layout_marginTop="16dp"
-                android:background="#0B191F" />
+                android:src="@drawable/im_1" />
 
             <!-- Textos con márgenes consistentes -->
             <TextView

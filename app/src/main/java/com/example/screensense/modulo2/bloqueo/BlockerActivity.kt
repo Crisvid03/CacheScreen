@@ -1,6 +1,8 @@
 package com.example.screensense.modulo2.bloqueo
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -17,11 +19,17 @@ class BlockerActivity : AppCompatActivity() {
         setContentView(R.layout.activity_blocker)
         setupEdgeToEdge()
 
+        Log.d("BlockerActivity", "🎬 BlockerActivity iniciada")
+
         val appName = intent.getStringExtra("app_name") ?: getString(R.string.unknown_app)
+        val packageName = intent.getStringExtra("package_name") ?: "unknown" // 👈 NUEVO
         val timeUsed = intent.getLongExtra("time_exceeded", 0)
+
+        Log.d("BlockerActivity", "📦 App bloqueada: $packageName") // 👈 NUEVO
 
         setupViews(appName, timeUsed)
     }
+
 
     private fun setupEdgeToEdge() {
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { view, insets ->
@@ -35,22 +43,27 @@ class BlockerActivity : AppCompatActivity() {
     }
 
     private fun setupViews(appName: String, timeUsed: Long) {
-        // Configurar mensaje principal
+        // Mensaje principal
         findViewById<TextView>(R.id.tv_blocked_message).apply {
             text = getString(R.string.block_message_title, appName)
             contentDescription = getString(R.string.block_message_content_desc, appName)
         }
 
-        // Configurar tiempo excedido
+        // Tiempo excedido
         findViewById<TextView>(R.id.tv_time_exceeded).apply {
             text = getString(R.string.time_exceeded_detail, formatTime(timeUsed))
             contentDescription = getString(R.string.time_exceeded_content_desc, formatTime(timeUsed))
         }
 
-        // Configurar botón
+        // Botón de acción
         findViewById<Button>(R.id.btn_ok).apply {
-            setOnClickListener { finishAffinity() }
-            // Mejorar accesibilidad del botón
+            setOnClickListener {
+                val intent = Intent(Intent.ACTION_MAIN)
+                intent.addCategory(Intent.CATEGORY_HOME)
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+                startActivity(intent)
+                finishAffinity()
+            }
             accessibilityTraversalAfter = R.id.tv_time_exceeded
         }
     }
@@ -64,18 +77,15 @@ class BlockerActivity : AppCompatActivity() {
             hours > 0 -> String.format("%dh %02dm", hours, minutes)
             minutes > 0 -> String.format("%dm %02ds", minutes, seconds)
             else -> String.format("%ds", seconds)
-        }.also {
-            // Formato accesible para TalkBack
-            it.replace("h", " horas ")
-                .replace("m", " minutos ")
-                .replace("s", " segundos")
-                .trim()
-        }
+        }.replace("h", " horas ")
+            .replace("m", " minutos ")
+            .replace("s", " segundos")
+            .trim()
     }
 
     @Deprecated("Deprecated in superclass", ReplaceWith(""))
     override fun onBackPressed() {
-        // Bloqueo completo - no hacer nada
+        // No permitir volver atrás
     }
 
     companion object {

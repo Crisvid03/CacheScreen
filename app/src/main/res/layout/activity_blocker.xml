@@ -8,16 +8,16 @@
     android:background="@color/gray"
     android:gravity="center"
     android:orientation="vertical"
-    android:padding="24dp">
+    android:padding="24dp"
+    tools:context=".modulo2.bloqueo.BlockerActivity">
 
-    <!-- Icono de advertencia (versión corregida con app:tint) -->
+    <!-- Icono de advertencia -->
     <ImageView
         android:layout_width="64dp"
         android:layout_height="64dp"
         android:layout_marginBottom="24dp"
         android:src="@drawable/ic_block"
-        app:tint="@color/teal_200"
-        />
+        app:tint="@color/teal_200" />
 
     <!-- Mensaje principal -->
     <TextView
@@ -40,9 +40,9 @@
         android:textSize="18sp"
         android:textColor="@color/white"
         android:layout_marginBottom="32dp"
-        tools:text="Tiempo de uso exdedido" />
+        tools:text="Tiempo de uso excedido" />
 
-    <!-- Botón de acción -->
+    <!-- Botón de acción para cerrar todo -->
     <Button
         android:id="@+id/btn_ok"
         android:layout_width="wrap_content"

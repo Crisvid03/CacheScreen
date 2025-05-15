@@ -27,13 +27,12 @@
             >
 
             <!-- View superior (imagen/placeholder) -->
-            <View
-                android:layout_width="320dp"
-                android:layout_height="200dp"
+            <ImageView
+                android:layout_width="366dp"
+                android:layout_height="247dp"
                 android:layout_gravity="center"
                 android:layout_marginBottom="24dp"
-                android:background="@color/backgroundLight"
-                android:foreground="?attr/selectableItemBackgroundBorderless" />
+                android:src="@drawable/im_1" />
 
             <!-- Botón de texto -->
             <Button

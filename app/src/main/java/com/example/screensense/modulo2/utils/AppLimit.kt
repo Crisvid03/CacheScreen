@@ -1,9 +1,12 @@
 package com.example.screensense.modulo2.utils
 
+import android.annotation.SuppressLint
+import android.app.ActivityManager
 import android.app.usage.UsageEvents
 import android.app.usage.UsageStatsManager
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.os.Build
 import android.util.Log
@@ -32,57 +35,121 @@ object AppLimit {
                 var accumulatedTime = prefs.getLong(accumulatedKey, 0)
                 val now = System.currentTimeMillis()
 
-                val isInForeground = isAppInForegroundViaUsageStats(context, packageName)
+                val isInForeground = isAppInForeground(context, packageName)
 
                 Log.d("AppLimit", "📊 Revisando $packageName - StartTime: $startTime Limit: $limitMillis")
 
                 if (isInForeground) {
-                    if (startTime != 0L) {
-                        val elapsed = now - startTime
-                        accumulatedTime += elapsed
-                        prefs.edit().putLong(accumulatedKey, accumulatedTime).apply()
-                        Log.d("AppLimit", "📱 $packageName en foreground. +$elapsed ms acumulado: $accumulatedTime ms")
-                    } else {
+                    if (startTime == 0L) {
+                        // Primer inicio en foreground
+                        prefs.edit().putLong(startTimeKey, now).apply()
                         Log.d("AppLimit", "🆕 $packageName primer startTime")
-                    }
-                    prefs.edit().putLong(startTimeKey, now).apply()
-                } else {
-                    Log.d("AppLimit", "📴 $packageName no en foreground. Tiempo acumulado: $accumulatedTime ms")
-                    prefs.edit().putLong(startTimeKey, now).apply()
-                }
+                    } else {
+                        // App sigue en foreground, acumulamos tiempo
+                        val elapsed = now - startTime
+                        val newAccumulated = accumulatedTime + elapsed
+                        prefs.edit()
+                            .putLong(accumulatedKey, newAccumulated)
+                            .putLong(startTimeKey, now) // Reiniciamos el contador
+                            .apply()
+                        Log.d("AppLimit", "📱 $packageName en foreground. +$elapsed ms acumulado: $newAccumulated ms")
 
-                if (accumulatedTime >= limitMillis) {
-                    Log.d("AppLimit", "🚨 Límite superado para $packageName")
-                    launchBlocker(context, packageName, accumulatedTime)
-                    prefs.edit()
-                        .remove("limit_$packageName")
-                        .remove(startTimeKey)
-                        .remove(accumulatedKey)
-                        .apply()
+                        // Verificamos límite después de actualizar
+                        if (newAccumulated >= limitMillis) {
+                            handleLimitExceeded(context, prefs, packageName, newAccumulated)
+                        }
+                    }
+                } else {
+                    // App no está en foreground, reiniciamos startTime pero mantenemos accumulated
+                    if (startTime != 0L) {
+                        prefs.edit().putLong(startTimeKey, 0).apply()
+                        Log.d("AppLimit", "📴 $packageName salió de foreground. Tiempo acumulado: $accumulatedTime ms")
+                    }
                 }
             }
         }
     }
 
-    private fun isAppInForegroundViaUsageStats(context: Context, packageName: String): Boolean {
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
+    private fun isAppInForeground(context: Context, packageName: String): Boolean {
+        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            isAppInForegroundApi29(context, packageName)
+        } else {
+            isAppInForegroundLegacy(context, packageName)
+        }
+    }
+
+    @RequiresApi(Build.VERSION_CODES.Q)
+    private fun isAppInForegroundApi29(context: Context, packageName: String): Boolean {
         val usm = context.getSystemService(Context.USAGE_STATS_SERVICE) as UsageStatsManager
         val now = System.currentTimeMillis()
-        val stats = usm.queryUsageStats(
-            UsageStatsManager.INTERVAL_DAILY,
-            now - 10_000,
-            now
-        )
+        val intervalMillis = 60_000L // Aumentado de 10s a 60s
+        val events = usm.queryEvents(now - intervalMillis, now)
+        var lastEvent: UsageEvents.Event? = null
 
-        if (stats != null) {
-            val recent = stats
-                .filter { it.packageName == packageName }
-                .maxByOrNull { it.lastTimeUsed }
-
-            if (recent != null) {
-                return now - recent.lastTimeUsed <= 10_000 // usado en los últimos 10 seg
+        while (events.hasNextEvent()) {
+            val event = UsageEvents.Event()
+            events.getNextEvent(event)
+            if (event.packageName == packageName) {
+                lastEvent = event
+                Log.d("AppLimit", "🕵 Evento para $packageName: ${event.eventType}")
             }
         }
+
+        return when (lastEvent?.eventType) {
+            UsageEvents.Event.MOVE_TO_FOREGROUND -> {
+                Log.d("AppLimit", "✅ $packageName está en foreground")
+                true
+            }
+            UsageEvents.Event.MOVE_TO_BACKGROUND -> {
+                Log.d("AppLimit", "🚫 $packageName está en background")
+                false
+            }
+            else -> {
+                Log.d("AppLimit", "❓ $packageName sin evento claro, usando fallback")
+                isAppInForegroundLegacy(context, packageName)
+            }
+        }
+    }
+
+
+    @SuppressLint("NewApi", "Deprecation")
+    private fun isAppInForegroundLegacy(context: Context, packageName: String): Boolean {
+        // Método 1: Uso de getRunningAppProcesses (más confiable para apps como Discord)
+        try {
+            val am = context.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
+            val runningProcesses = am.runningAppProcesses ?: return false
+
+            for (process in runningProcesses) {
+                if (process.importance == ActivityManager.RunningAppProcessInfo.IMPORTANCE_FOREGROUND &&
+                    process.processName == packageName) {
+                    return true
+                }
+            }
+        } catch (e: Exception) {
+            Log.e("AppLimit", "Error al verificar procesos", e)
+        }
+
+        // Método 2: Uso de UsageStats como fallback
+        val usm = context.getSystemService(Context.USAGE_STATS_SERVICE) as UsageStatsManager
+        val now = System.currentTimeMillis()
+        val stats = usm.queryUsageStats(UsageStatsManager.INTERVAL_DAILY, now - 10_000, now)
+
+        stats?.firstOrNull { it.packageName == packageName }?.let { recent ->
+            return now - recent.lastTimeUsed <= 15_000 // Aumentamos el margen a 15 segundos
+        }
+
         return false
+    }
+
+    private fun handleLimitExceeded(context: Context, prefs: SharedPreferences, packageName: String, timeExceeded: Long) {
+        Log.d("AppLimit", "🚨 Límite superado para $packageName")
+        launchBlocker(context, packageName, timeExceeded)
+        prefs.edit()
+            .remove("limit_$packageName")
+            .remove("start_time_$packageName")
+            .remove("accumulated_time_$packageName")
+            .apply()
     }
 
     private fun launchBlocker(context: Context, packageName: String, timeExceeded: Long) {

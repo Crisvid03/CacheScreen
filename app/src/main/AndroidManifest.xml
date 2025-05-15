@@ -14,6 +14,8 @@
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SYSTEM_EXEMPTED"/>
     <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM"/>
     <uses-permission android:name="android.permission.USE_EXACT_ALARM"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
+
 
     <queries>
         <intent>
@@ -36,9 +38,22 @@
 
         <!-- Actividades del módulo 2 -->
 
+        <service
+            android:name=".modulo2.bloqueo.BlockerService"
+            android:enabled="true"
+            android:exported="false"
+            android:foregroundServiceType="specialUse" />
+
+
         <activity
             android:name=".modulo2.bloqueo.BlockerActivity"
-            android:exported="false" />
+            android:excludeFromRecents="true"
+            android:exported="true"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:taskAffinity="" >
+        </activity>
+
 
         <activity
             android:name=".modulo2.bloqueo.LimitConfigActivity"

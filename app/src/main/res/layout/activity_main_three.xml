@@ -90,11 +90,11 @@
                 android:textSize="20sp"/>
 
             <!-- View placeholder centrado -->
-            <View
+            <ImageView
                 android:layout_width="332dp"
                 android:layout_height="205dp"
                 android:layout_marginTop="32dp"
-                android:background="#0B191F"/>
+                android:background="@drawable/im_3"/>
 
             <!-- Botones con márgenes consistentes -->
             <Button

@@ -72,12 +72,12 @@
             </androidx.appcompat.widget.LinearLayoutCompat>
 
             <!-- Sección de contenido - Centrado y con márgenes proporcionales -->
-            <View
+            <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="205dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="32dp"
-                android:background="#0B191F" />
+                android:src="@drawable/im_2" />
 
             <!-- Texto - Ancho match_parent para mejor adaptación -->
             <TextView
